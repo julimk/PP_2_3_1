@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* общие стили */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+        }
+
+        h1 {
+            color: #444;
+            text-align: center;
+        }
+
+
+        .button-row {
+            text-align: center;
+        }
+
+        .button-add {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 3px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-add:hover {
+            background-color: #2980b9;
+        }
+
+        /* медиа запросы для адаптивности */
+        @media (max-width: 768px) {
+            form {
+                margin: 20px;
+            }
+        }
+    </style>
+    <title th:text="${titleText}"></title>
+
+</head>
+<body>
+<h1 th:text="${H1_Text}"></h1>
+
+<form th:action="@{/users}" method="GET">
+    <div class="button-row">
+        <button type="submit" class="button-add">Начать</button>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* общие стили */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+        }
+
+        h1 {
+            color: black;
+            text-align: center;
+        }
+
+        /* стили для таблицы */
+        table {
+
+            width: 60%;
+            border-collapse: collapse;
+            margin: 30px auto ;
+
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: skyblue;
+            font-weight: bold;
+        }
+
+        /* стили для контейнера кнопок */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 30px auto 0;
+        }
+
+        /* стили для кнопок */
+        button {
+            display: inline-block;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-add {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .button-add:hover {
+            background-color: #2980b9;
+        }
+
+        .button-delete {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .button-delete:hover {
+            background-color: #c0392b;
+        }
+
+        .button-edit {
+            background-color: green;
+            color: #fff;
+        }
+
+        .button-edit:hover
+
+    </style>
+    <title th:text="${titleText}"></title>
+
+</head>
+<body>
+<h1 th:text="${H1_Text}"></h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Возраст</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.age}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="button-container">
+    <form th:action="@{/user/create}" method="GET">
+        <button type="submit" class="button-add">Добавить</button>
+    </form>
+
+    <form th:action="@{/user/delete}" method="GET">
+        <button type="submit" class="button-delete">Удалить</button>
+    </form>
+
+    <form th:action="@{/user/update}" method="GET">
+        <button type="submit" class="button-edit">Редактировать</button>
+    </form>
+
+
+    <form th:action="@{/users}" method="GET">
+        <button type="submit" class="button-return">Вернуться к списку</button>
+    </form>
+</div>
+
+</body>
+</html>

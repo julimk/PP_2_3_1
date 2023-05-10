@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titleText}"></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        form {
+            width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 3px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        button[type="submit"] {
+            display: block;
+            margin: 0 auto;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+<h1 th:text="${H1}"></h1>
+
+<form th:action="@{/user/create}" method="post" th:object="${user}">
+    <label for="name">Имя пользователя:</label>
+    <input type="text" th:field="*{name}" id="name">
+
+    <label for="lastName">Фамилия пользователя:</label>
+    <input type="text" th:field="*{lastName}" id="lastName">
+
+    <label for="age">Возраст пользователя:</label>
+    <input type="text" th:field="*{age}" id="age">
+
+    <button type="submit">Добавить</button>
+</form>
+
+</body>
+</html>
